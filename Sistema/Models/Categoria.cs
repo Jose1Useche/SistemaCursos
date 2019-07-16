@@ -16,7 +16,5 @@ namespace Sistema.Models
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
-
-        //Colocando etiqueta para verificar actualizacion de repositorio
     }
 }

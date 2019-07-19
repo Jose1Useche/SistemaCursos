@@ -10,7 +10,8 @@ using Sistema.Models;
 namespace Sistema.Controllers
 {
     public class CategoriasController : Controller
-    {
+    { 
+        //Actualizacion desde casa
         private readonly SistemaContext _context;
 
         public CategoriasController(SistemaContext context)

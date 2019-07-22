@@ -8,7 +8,7 @@
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Nuevo</a>
-</p>
+</p>    
 <form asp-action="Index" method="get">
     <div class="form-actions no-color">
         <p>
@@ -22,10 +22,14 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NombreSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@*@Html.DisplayNameFor(model => model.Nombre)*@Nombre</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NombreSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre@*@Html.DisplayNameFor(model => model.Nombre)*@</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortPar"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@*@Html.DisplayNameFor(model => model.Descripcion)*@Descripción</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["DescripcionSortPar"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">Descripción@*@Html.DisplayNameFor(model => model.Descripcion)*@</a>
             </th>
             <th>
                 @*@Html.DisplayNameFor(model => model.*@Estado
@@ -57,7 +61,7 @@
 </table>
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = Model.HasNextPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
@@ -65,7 +69,7 @@
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">Anterior</a>
 
-@for (int i = 1; i < Model.TotalPages; i++)
+@for (int i = 1; i <= Model.TotalPages; i++)
 {
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
